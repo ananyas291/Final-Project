@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Slang Translator</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f5f5f5;
+      padding: 20px;
+      text-align: center;
+    }
+
+    h1 {
+      color: #333;
+    }
+
+    #translator {
+      margin-top: 30px;
+    }
+
+    input, button {
+      padding: 10px;
+      font-size: 16px;
+      margin: 5px;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+    }
+
+    #output {
+      margin-top: 20px;
+      font-size: 18px;
+      font-weight: bold;
+      color: #006600;
+    }
+  </style>
+</head>
+<body>
+  <h1>Slang Translator</h1>
+  <p>Enter a slang word to get its formal English meaning:</p>
+
+  <div id="translator">
+    <input type="text" id="slangInput" placeholder="Type slang here...">
+    <button onclick="translateSlang()">Translate</button>
+    <div id="output"></div>
+  </div>
+
+  <script>
+    const slangDictionary = {
+      "sus": "suspicious",
+      "cap": "a lie or false statement",
+      "no cap": "for real / not lying",
+      "bet": "okay / sure",
+      "lit": "exciting or fun",
+      "goat": "greatest of all time",
+      "salty": "upset or bitter",
+      "flex": "to show off",
+      "tea": "gossip or news",
+      "ghosted": "suddenly cut off communication"
+    };
+
+    function translateSlang() {
+      const input = document.getElementById("slangInput").value.toLowerCase().trim();
+      const outputDiv = document.getElementById("output");
+
+      if (slangDictionary[input]) {
+        outputDiv.textContent = `"${input}" means: ${slangDictionary[input]}`;
+      } else {
+        outputDiv.textContent = `"${input}" is not in our dictionary yet. Try another slang!`;
+      }
+    }
+  </script>
+</body>
+</html>
